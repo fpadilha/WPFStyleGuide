@@ -1,0 +1,36 @@
+﻿<Window x:Class="WPFStyleGuide.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StyleGuide"
+        mc:Ignorable="d"
+        Background="#34324A"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <WrapPanel>
+            <WrapPanel.Resources>
+            </WrapPanel.Resources>
+            <Button Style="{StaticResource PrimaryButtonStyle}"
+                    Margin="20"
+                    Content="PRIMARY BUTTON" />
+            <Button Style="{StaticResource SecondaryButtonStyle}"
+                    Margin="20"
+                    Content="SECONDARY BUTTON" />
+
+            <Button Style="{StaticResource PrimaryGhostButtonStyle}"
+                    Margin="20"
+                    Content="PRIMARY GHOST" />
+            <Button Style="{StaticResource SpecialButtonStyle}"
+                    Margin="20"
+                    Content="SPECIAL BUTTON" />
+        </WrapPanel>
+    </Grid>
+</Window>

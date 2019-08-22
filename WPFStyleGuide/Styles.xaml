@@ -1,0 +1,273 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WPFStyleGuide">
+
+    <Color x:Key="HighlightAquaColor">#27E7C4</Color>
+    <Color x:Key="HighlightAquaHoverColor">#15FBCF</Color>
+
+    <Color x:Key="MidnightBlueColor">#17183b</Color>
+    <Color x:Key="HighlightBlueColor">#3f429b</Color>
+
+    <Color x:Key="HighlightBlueHoverColor">#5155cd</Color>
+    <Color x:Key="DarkestBlueColor">#090917</Color>
+    <Color x:Key="SoftAquaColor">#bbd7ce</Color>
+
+
+    <SolidColorBrush x:Key="HighlightAquaBrush"
+                     Color="{StaticResource HighlightAquaColor}" />
+    <SolidColorBrush x:Key="HighlightAquaHoverBrush"
+                     Color="{StaticResource HighlightAquaHoverColor}" />
+
+    <SolidColorBrush x:Key="MidnightBlueBrush"
+                     Color="{StaticResource MidnightBlueColor}" />
+    <SolidColorBrush x:Key="HighlightBlueBrush"
+                     Color="{StaticResource HighlightBlueColor}" />
+    <SolidColorBrush x:Key="HighlightBlueHoverBrush"
+                     Color="{StaticResource HighlightBlueHoverColor}" />
+    <SolidColorBrush x:Key="DarkestBlueBrush"
+                     Color="{StaticResource DarkestBlueColor}" />
+    <SolidColorBrush x:Key="SoftAquaBrush"
+                     Color="{StaticResource SoftAquaColor}" />
+
+    <Style TargetType="{x:Type Button}"
+           x:Key="PrimaryButtonStyle">
+        <Setter Property="VerticalAlignment"
+                Value="Top" />
+        <Setter Property="HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid Background="Transparent">
+                        <Border x:Name="border"
+                                SnapsToDevicePixels="True"
+                                Background="{StaticResource HighlightAquaBrush}"
+                                CornerRadius="4"
+                                Margin="1"
+                                Padding="16,9">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="6"
+                                                  ShadowDepth="3"
+                                                  Opacity="0.33"
+                                                  Direction="-45"
+                                                  Color="Black" />
+                            </Border.Effect>
+                            <TextBlock FontFamily="/#Inter Bold"
+                                       Foreground="Black"
+                                       FontSize="11"
+                                       Text="{TemplateBinding Content}" />
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter TargetName="border"
+                                    Property="Background"
+                                    Value="{StaticResource HighlightAquaHoverBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter TargetName="border"
+                                    Property="Margin"
+                                    Value="2,2,0,0" />
+                            <Setter TargetName="border"
+                                    Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="4"
+                                                      ShadowDepth="3"
+                                                      Opacity="0.08"
+                                                      Direction="-45"
+                                                      Color="Black" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter Property="Opacity"
+                                    Value="0.20" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+    <Style TargetType="{x:Type Button}"
+           x:Key="SecondaryButtonStyle">
+        <Setter Property="VerticalAlignment"
+                Value="Top" />
+        <Setter Property="HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid Background="Transparent">
+                        <Border x:Name="border"
+                                SnapsToDevicePixels="True"
+                                Background="#43405B"
+                                CornerRadius="4"
+                                Margin="1"
+                                Padding="16,9">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="6"
+                                                  ShadowDepth="3"
+                                                  Opacity="0.33"
+                                                  Direction="-45"
+                                                  Color="Black" />
+                            </Border.Effect>
+                            <TextBlock FontFamily="/#Inter Medium"
+                                       Foreground="#ABA8C8"
+                                       FontSize="11"
+                                       Text="{TemplateBinding Content}" />
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter TargetName="border"
+                                    Property="Background"
+                                    Value="#464361" />
+                        </Trigger>
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter TargetName="border"
+                                    Property="Margin"
+                                    Value="2,2,0,0" />
+                            <Setter TargetName="border"
+                                    Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="4"
+                                                      ShadowDepth="3"
+                                                      Opacity="0.08"
+                                                      Direction="-45"
+                                                      Color="Black" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter Property="Opacity"
+                                    Value="0.20" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+    <Style TargetType="{x:Type Button}"
+           x:Key="PrimaryGhostButtonStyle">
+        <Setter Property="VerticalAlignment"
+                Value="Top" />
+        <Setter Property="HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid Background="Transparent">
+                        <Border x:Name="border"
+                                SnapsToDevicePixels="True"
+                                Background="Transparent"
+                                CornerRadius="4"
+                                Margin="1"
+                                BorderThickness="1"
+                                BorderBrush="{StaticResource HighlightAquaBrush}"
+                                Padding="15,8">
+                            <TextBlock FontFamily="/#Inter Medium"
+                                       Foreground="{StaticResource HighlightAquaBrush}"
+                                       FontSize="11"
+                                       Text="{TemplateBinding Content}" />
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter TargetName="border"
+                                    Property="Background">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{StaticResource HighlightAquaHoverColor}"
+                                                     Opacity="0.05" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter TargetName="border"
+                                    Property="Margin"
+                                    Value="2,2,0,0" />                           
+                        </Trigger>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter Property="Opacity"
+                                    Value="0.20" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+    <Style TargetType="{x:Type Button}"
+           x:Key="SpecialButtonStyle">
+        <Setter Property="VerticalAlignment"
+                Value="Top" />
+        <Setter Property="HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid Background="Transparent">
+                        <Border x:Name="border"
+                                SnapsToDevicePixels="True"
+                                Background="#F66A74"
+                                CornerRadius="4"
+                                Margin="1"
+                                Padding="16,9">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="6"
+                                                  ShadowDepth="3"
+                                                  Opacity="0.33"
+                                                  Direction="-45"
+                                                  Color="Black" />
+                            </Border.Effect>
+                            <TextBlock FontFamily="/#Inter Bold"
+                                       Foreground="Black"
+                                       FontSize="11"
+                                       Text="{TemplateBinding Content}" />
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter TargetName="border"
+                                    Property="Background"
+                                    Value="#FE727B" />
+                        </Trigger>
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter TargetName="border"
+                                    Property="Margin"
+                                    Value="2,2,0,0" />
+                            <Setter TargetName="border"
+                                    Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="4"
+                                                      ShadowDepth="3"
+                                                      Opacity="0.08"
+                                                      Direction="-45"
+                                                      Color="Black" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter Property="Opacity"
+                                    Value="0.20" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

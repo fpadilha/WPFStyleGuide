@@ -1,0 +1,4 @@
+*.suo
+/.vs
+/WPFStyleGuide/bin
+/WPFStyleGuide/obj
