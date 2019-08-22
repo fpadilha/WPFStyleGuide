@@ -40,7 +40,6 @@
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid Background="Transparent">
                         <Border x:Name="border"
-                                SnapsToDevicePixels="True"
                                 Background="{StaticResource HighlightAquaBrush}"
                                 CornerRadius="4"
                                 Margin="1"
@@ -52,7 +51,9 @@
                                                   Direction="-45"
                                                   Color="Black" />
                             </Border.Effect>
-                            <TextBlock FontFamily="/#Inter Bold"
+                            <TextBlock FontFamily="/#Roboto Bold"
+                                       TextOptions.TextFormattingMode="Display"
+                                       TextOptions.TextRenderingMode="ClearType"
                                        Foreground="Black"
                                        FontSize="11"
                                        Text="{TemplateBinding Content}" />
@@ -103,7 +104,6 @@
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid Background="Transparent">
                         <Border x:Name="border"
-                                SnapsToDevicePixels="True"
                                 Background="#43405B"
                                 CornerRadius="4"
                                 Margin="1"
@@ -111,11 +111,13 @@
                             <Border.Effect>
                                 <DropShadowEffect BlurRadius="6"
                                                   ShadowDepth="3"
-                                                  Opacity="0.33"
+                                                  Opacity="0.22"
                                                   Direction="-45"
                                                   Color="Black" />
                             </Border.Effect>
-                            <TextBlock FontFamily="/#Inter Medium"
+                            <TextBlock FontFamily="/#Roboto Medium"
+                                       TextOptions.TextFormattingMode="Display"
+                                       TextOptions.TextRenderingMode="ClearType"
                                        Foreground="#ABA8C8"
                                        FontSize="11"
                                        Text="{TemplateBinding Content}" />
@@ -126,7 +128,7 @@
                                  Value="True">
                             <Setter TargetName="border"
                                     Property="Background"
-                                    Value="#464361" />
+                                    Value="#4C4868" />
                         </Trigger>
                         <Trigger Property="IsPressed"
                                  Value="True">
@@ -166,14 +168,15 @@
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid Background="Transparent">
                         <Border x:Name="border"
-                                SnapsToDevicePixels="True"
                                 Background="Transparent"
                                 CornerRadius="4"
                                 Margin="1"
                                 BorderThickness="1"
                                 BorderBrush="{StaticResource HighlightAquaBrush}"
                                 Padding="15,8">
-                            <TextBlock FontFamily="/#Inter Medium"
+                            <TextBlock FontFamily="/#Roboto Medium"
+                                       TextOptions.TextFormattingMode="Display"
+                                       TextOptions.TextRenderingMode="ClearType"
                                        Foreground="{StaticResource HighlightAquaBrush}"
                                        FontSize="11"
                                        Text="{TemplateBinding Content}" />
@@ -218,7 +221,6 @@
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid Background="Transparent">
                         <Border x:Name="border"
-                                SnapsToDevicePixels="True"
                                 Background="#F66A74"
                                 CornerRadius="4"
                                 Margin="1"
@@ -230,7 +232,9 @@
                                                   Direction="-45"
                                                   Color="Black" />
                             </Border.Effect>
-                            <TextBlock FontFamily="/#Inter Bold"
+                            <TextBlock FontFamily="/#Roboto Bold"
+                                       TextOptions.TextFormattingMode="Display"
+                                       TextOptions.TextRenderingMode="ClearType"
                                        Foreground="Black"
                                        FontSize="11"
                                        Text="{TemplateBinding Content}" />
