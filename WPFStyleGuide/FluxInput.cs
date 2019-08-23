@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
 
 namespace WPFStyleGuide
 {
+
     public class FluxInput : DependencyObject
-    {
+    { 
         #region Attached Properties
 
         public static bool GetIsSearch(DependencyObject obj)
@@ -117,6 +119,22 @@ namespace WPFStyleGuide
 
         public static readonly DependencyProperty WatermarkFontSizeProperty =
             DependencyProperty.RegisterAttached("WatermarkFontSize", typeof(double), typeof(FluxInput), new UIPropertyMetadata(double.NaN));
+
+
+
+        public static bool GetIsErrorState(DependencyObject obj)
+        {
+            return (bool)obj.GetValue(IsErrorStateProperty);
+        }
+
+        public static void SetIsErrorState(DependencyObject obj, bool value)
+        {
+            obj.SetValue(IsErrorStateProperty, value);
+        }
+
+        public static readonly DependencyProperty IsErrorStateProperty =
+            DependencyProperty.RegisterAttached("IsErrorState", typeof(bool), typeof(FluxInput), new UIPropertyMetadata(false));
+
 
 
 
@@ -291,51 +309,9 @@ namespace WPFStyleGuide
         #endregion
     }
 
-    public class StoryBoardBehaviour : DependencyObject
-    {
-        public static readonly DependencyProperty AttachCompletedHandlerProperty =
-            DependencyProperty.Register("AttachCompletedHandler", typeof(bool), typeof(StoryBoardBehaviour), new PropertyMetadata(false, AttachCompletedHandlerChanged));
-
-        public static void SetAttachCompletedHandler(DependencyObject obj, bool value)
-        {
-            obj.SetValue(AttachCompletedHandlerProperty, value);
-        }
-
-        public static bool GetAttachCompletedHandler(DependencyObject obj)
-        {
-            return (bool)obj.GetValue(AttachCompletedHandlerProperty);
-        }
-
-        private static void AttachCompletedHandlerChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            var storyboard = (Storyboard)d;
-            var oldValue = (bool)e.OldValue;
-            var newValue = (bool)e.NewValue;
-
-            if (newValue && !oldValue)
-            {
-                storyboard.Completed += StoryboardOnCompleted;
-            }
-
-            if (!newValue && oldValue)
-            {
-                storyboard.Completed -= StoryboardOnCompleted;
-            }
-        }
-
-        private static void StoryboardOnCompleted(object sender, object o)
-        {
-            // Completed handler logic
-        }
-    }
-
     public partial class FluxInputHandlers : ResourceDictionary
     {
-        //private void exitTextCompleted(object sender, EventArgs e)
-        //{
-        //    System.Windows.Media.Animation.ClockGroup clockGroup = sender as System.Windows.Media.Animation.ClockGroup;
-        //    System.Windows.Media.Animation.Storyboard story = clockGroup.Timeline as System.Windows.Media.Animation.Storyboard;
-        //    story.t
-        //}
+      
+  
     }
 }

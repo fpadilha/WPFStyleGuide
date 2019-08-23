@@ -25,9 +25,9 @@ namespace WPFStyleGuide
             InitializeComponent();
         }
 
-      
 
-    
+
+
 
         private void WinMouseClickEvent(object sender, MouseButtonEventArgs e)
         {
@@ -44,9 +44,13 @@ namespace WPFStyleGuide
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainGrid.Children.Remove(tx);
+            if (FluxInput.GetIsErrorState(tx))
+                FluxInput.SetIsErrorState(tx, false);
+            else
+                FluxInput.SetIsErrorState(tx, true);
+
         }
 
-      
+
     }
 }
