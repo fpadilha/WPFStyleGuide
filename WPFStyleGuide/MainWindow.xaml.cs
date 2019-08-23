@@ -25,5 +25,26 @@ namespace WPFStyleGuide
             InitializeComponent();
         }
 
+      
+
+    
+
+        private void WinMouseClickEvent(object sender, MouseButtonEventArgs e)
+        {
+            //TextBox tb = FocusManager.GetFocusedElement(this) as TextBox;
+
+            //if (tb != null && tb.Name != "PART_HexadecimalTextBox")
+            //{
+            //    Keyboard.ClearFocus();
+            //    DependencyObject focusScope = FocusManager.GetFocusScope(this);
+            //    FocusManager.SetFocusedElement(focusScope, this);
+            //}
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainGrid.Children.Remove(tx);
+        }
     }
 }

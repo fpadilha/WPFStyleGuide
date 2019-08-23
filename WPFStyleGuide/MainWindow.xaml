@@ -3,34 +3,93 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:StyleGuide"
+        xmlns:local="clr-namespace:WPFStyleGuide"
         mc:Ignorable="d"
         Background="#34324A"
-        Title="MainWindow" Height="450" Width="800">
+        ResizeMode="NoResize"
+        Title="MainWindow"
+        Height="450"
+        PreviewMouseLeftButtonDown="WinMouseClickEvent"
+        Width="1100">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Styles.xaml" />
+                <ResourceDictionary Source="ButtonStyles.xaml" />
+                <ResourceDictionary Source="InputStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    <Grid>
+    <Grid x:Name="MainGrid">
+
         <WrapPanel>
             <WrapPanel.Resources>
             </WrapPanel.Resources>
+
             <Button Style="{StaticResource PrimaryButtonStyle}"
+                    Click="Button_Click"
                     Margin="20"
                     Content="PRIMARY BUTTON" />
             <Button Style="{StaticResource SecondaryButtonStyle}"
                     Margin="20"
                     Content="SECONDARY BUTTON" />
-
             <Button Style="{StaticResource PrimaryGhostButtonStyle}"
                     Margin="20"
                     Content="PRIMARY GHOST" />
+            <Button Style="{StaticResource SecondaryGhostButtonStyle}"
+                    Margin="20"
+                    Content="SECONDARY GHOST" />
             <Button Style="{StaticResource SpecialButtonStyle}"
                     Margin="20"
                     Content="SPECIAL BUTTON" />
+            <Button Style="{StaticResource TextButtonStyle}"
+                    VerticalAlignment="Center"
+                    Margin="20"
+                    Content="SPECIAL BUTTON" />
+
+
+            <Button Style="{StaticResource PrimaryButtonStyle}"
+                    Margin="20"
+                    IsEnabled="False"
+                    Content="PRIMARY BUTTON" />
+            <Button Style="{StaticResource SecondaryButtonStyle}"
+                    Margin="20"
+                    IsEnabled="False"
+                    Content="SECONDARY BUTTON" />
+            <Button Style="{StaticResource PrimaryGhostButtonStyle}"
+                    Margin="20"
+                    IsEnabled="False"
+                    Content="PRIMARY GHOST" />
+            <Button Style="{StaticResource SecondaryGhostButtonStyle}"
+                    Margin="20"
+                    IsEnabled="False"
+                    Content="SECONDARY GHOST" />
+            <Button Style="{StaticResource SpecialButtonStyle}"
+                    Margin="20"
+                    IsEnabled="False"
+                    Content="SPECIAL BUTTON" />
+            <Button Style="{StaticResource TextButtonStyle}"
+                    VerticalAlignment="Center"
+                    Margin="20"
+                    IsEnabled="False"
+                    Content="SPECIAL BUTTON" />
+
+
+            <TextBox Margin="20"
+                     Width="200"
+                     Height="60"
+                     Style="{StaticResource TextBoxWatermark}"
+                     local:FluxInput.IsMonitoring="true"
+                     local:FluxInput.WatermarkText="Testing" />
+
+
         </WrapPanel>
+        <TextBox x:Name="tx"
+                 Margin="20"
+                 Width="200"
+                 Height="60"
+                 Style="{StaticResource TextBoxWatermark}"
+                 local:FluxInput.IsMonitoring="true"
+                 local:FluxInput.WatermarkText="dadsada" />
+
     </Grid>
 </Window>
