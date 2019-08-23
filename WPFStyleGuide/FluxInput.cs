@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Animation;
 
 namespace WPFStyleGuide
 {
@@ -29,7 +30,6 @@ namespace WPFStyleGuide
 
 
 
-
         public static bool GetHasClearButton(DependencyObject obj)
         {
             return (bool)obj.GetValue(HasClearButtonProperty);
@@ -42,7 +42,6 @@ namespace WPFStyleGuide
 
         public static readonly DependencyProperty HasClearButtonProperty =
             DependencyProperty.RegisterAttached("HasClearButton", typeof(bool), typeof(FluxInput), new UIPropertyMetadata(false));
-
 
 
 
@@ -61,7 +60,6 @@ namespace WPFStyleGuide
 
 
 
-
         public static string GetWatermarkText(DependencyObject obj)
         {
             return (string)obj.GetValue(WatermarkTextProperty);
@@ -74,7 +72,6 @@ namespace WPFStyleGuide
 
         public static readonly DependencyProperty WatermarkTextProperty =
             DependencyProperty.RegisterAttached("WatermarkText", typeof(string), typeof(FluxInput), new UIPropertyMetadata(string.Empty));
-
 
 
 
@@ -105,7 +102,6 @@ namespace WPFStyleGuide
 
         public static readonly DependencyProperty TextLengthProperty =
             DependencyProperty.RegisterAttached("TextLength", typeof(int), typeof(FluxInput), new UIPropertyMetadata(0));
-
 
 
 
@@ -148,7 +144,6 @@ namespace WPFStyleGuide
             DependencyProperty.RegisterAttached("HasText", typeof(bool), typeof(FluxInput), new FrameworkPropertyMetadata(false));
 
 
-
         #endregion
 
         #region Implementation
@@ -169,7 +164,7 @@ namespace WPFStyleGuide
                         win.Closing += Win_ForcedDispose;
                     }
                     catch { }
-                    txtBox.preview += TxtBox_Unloaded;
+
                     txtBox.TextChanged += TextChanged;
                     txtBox.GotFocus += TextFocusChanged;
                     txtBox.LostFocus += TextFocusChanged;
@@ -222,16 +217,6 @@ namespace WPFStyleGuide
             }
         }
 
-        private static void TxtBox_Unloaded(object sender, RoutedEventArgs e)
-        {
-            Window win = Window.GetWindow(sender as TextBox);
-            if (win != null)
-            {
-                try { win.PreviewKeyDown -= Win_PreviewKeyDown; } catch { }
-                try { win.PreviewMouseLeftButtonDown -= Win_PreviewMouseLeftButtonDown; } catch { }
-                try { win.Closing -= Win_ForcedDispose; } catch { }
-            }
-        }
 
         private static void Win_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
@@ -247,7 +232,7 @@ namespace WPFStyleGuide
                 }
             }
         }
-               
+
         private static void Win_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             Window win = sender as Window;
@@ -304,5 +289,53 @@ namespace WPFStyleGuide
 
 
         #endregion
+    }
+
+    public class StoryBoardBehaviour : DependencyObject
+    {
+        public static readonly DependencyProperty AttachCompletedHandlerProperty =
+            DependencyProperty.Register("AttachCompletedHandler", typeof(bool), typeof(StoryBoardBehaviour), new PropertyMetadata(false, AttachCompletedHandlerChanged));
+
+        public static void SetAttachCompletedHandler(DependencyObject obj, bool value)
+        {
+            obj.SetValue(AttachCompletedHandlerProperty, value);
+        }
+
+        public static bool GetAttachCompletedHandler(DependencyObject obj)
+        {
+            return (bool)obj.GetValue(AttachCompletedHandlerProperty);
+        }
+
+        private static void AttachCompletedHandlerChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var storyboard = (Storyboard)d;
+            var oldValue = (bool)e.OldValue;
+            var newValue = (bool)e.NewValue;
+
+            if (newValue && !oldValue)
+            {
+                storyboard.Completed += StoryboardOnCompleted;
+            }
+
+            if (!newValue && oldValue)
+            {
+                storyboard.Completed -= StoryboardOnCompleted;
+            }
+        }
+
+        private static void StoryboardOnCompleted(object sender, object o)
+        {
+            // Completed handler logic
+        }
+    }
+
+    public partial class FluxInputHandlers : ResourceDictionary
+    {
+        //private void exitTextCompleted(object sender, EventArgs e)
+        //{
+        //    System.Windows.Media.Animation.ClockGroup clockGroup = sender as System.Windows.Media.Animation.ClockGroup;
+        //    System.Windows.Media.Animation.Storyboard story = clockGroup.Timeline as System.Windows.Media.Animation.Storyboard;
+        //    story.t
+        //}
     }
 }

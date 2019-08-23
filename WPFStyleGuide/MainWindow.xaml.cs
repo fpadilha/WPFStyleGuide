@@ -46,5 +46,7 @@ namespace WPFStyleGuide
         {
             MainGrid.Children.Remove(tx);
         }
+
+      
     }
 }

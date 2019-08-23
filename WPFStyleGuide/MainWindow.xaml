@@ -17,6 +17,7 @@
                 <ResourceDictionary Source="ButtonStyles.xaml" />
                 <ResourceDictionary Source="InputStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
         </ResourceDictionary>
     </Window.Resources>
     <Grid x:Name="MainGrid">
@@ -73,23 +74,23 @@
                     IsEnabled="False"
                     Content="SPECIAL BUTTON" />
 
-
             <TextBox Margin="20"
-                     Width="200"
-                     Height="60"
+                     Width="400"
                      Style="{StaticResource TextBoxWatermark}"
                      local:FluxInput.IsMonitoring="true"
-                     local:FluxInput.WatermarkText="Testing" />
+                     local:FluxInput.IsSearch="True"
+                     local:FluxInput.WatermarkText="Search for a keyword, hashtag, channel etc." />
 
 
+            <TextBox x:Name="tx"
+                     Margin="20"
+                     Width="200"
+                     Style="{StaticResource TextBoxWatermark}"
+                     local:FluxInput.IsMonitoring="true"
+                     local:FluxInput.WatermarkText="dadsada" />
+       
         </WrapPanel>
-        <TextBox x:Name="tx"
-                 Margin="20"
-                 Width="200"
-                 Height="60"
-                 Style="{StaticResource TextBoxWatermark}"
-                 local:FluxInput.IsMonitoring="true"
-                 local:FluxInput.WatermarkText="dadsada" />
+
 
     </Grid>
 </Window>
