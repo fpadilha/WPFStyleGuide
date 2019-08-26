@@ -10,10 +10,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-namespace WPFStyleGuide
+namespace Fluxonaut.UI.Components
 {
 
-    public class FluxInput : DependencyObject
+    public class UIInputs : DependencyObject
     { 
         #region Attached Properties
 
@@ -28,7 +28,7 @@ namespace WPFStyleGuide
         }
 
         public static readonly DependencyProperty IsSearchProperty =
-            DependencyProperty.RegisterAttached("IsSearch", typeof(bool), typeof(FluxInput), new UIPropertyMetadata(false));
+            DependencyProperty.RegisterAttached("IsSearch", typeof(bool), typeof(UIInputs), new UIPropertyMetadata(false));
 
 
 
@@ -43,7 +43,7 @@ namespace WPFStyleGuide
         }
 
         public static readonly DependencyProperty HasClearButtonProperty =
-            DependencyProperty.RegisterAttached("HasClearButton", typeof(bool), typeof(FluxInput), new UIPropertyMetadata(false));
+            DependencyProperty.RegisterAttached("HasClearButton", typeof(bool), typeof(UIInputs), new UIPropertyMetadata(false));
 
 
 
@@ -58,7 +58,7 @@ namespace WPFStyleGuide
         }
 
         public static readonly DependencyProperty IsMonitoringProperty =
-            DependencyProperty.RegisterAttached("IsMonitoring", typeof(bool), typeof(FluxInput), new UIPropertyMetadata(false, OnIsMonitoringChanged));
+            DependencyProperty.RegisterAttached("IsMonitoring", typeof(bool), typeof(UIInputs), new UIPropertyMetadata(false, OnIsMonitoringChanged));
 
 
 
@@ -73,7 +73,7 @@ namespace WPFStyleGuide
         }
 
         public static readonly DependencyProperty WatermarkTextProperty =
-            DependencyProperty.RegisterAttached("WatermarkText", typeof(string), typeof(FluxInput), new UIPropertyMetadata(string.Empty));
+            DependencyProperty.RegisterAttached("WatermarkText", typeof(string), typeof(UIInputs), new UIPropertyMetadata(string.Empty));
 
 
 
@@ -103,7 +103,7 @@ namespace WPFStyleGuide
         }
 
         public static readonly DependencyProperty TextLengthProperty =
-            DependencyProperty.RegisterAttached("TextLength", typeof(int), typeof(FluxInput), new UIPropertyMetadata(0));
+            DependencyProperty.RegisterAttached("TextLength", typeof(int), typeof(UIInputs), new UIPropertyMetadata(0));
 
 
 
@@ -118,7 +118,7 @@ namespace WPFStyleGuide
         }
 
         public static readonly DependencyProperty WatermarkFontSizeProperty =
-            DependencyProperty.RegisterAttached("WatermarkFontSize", typeof(double), typeof(FluxInput), new UIPropertyMetadata(double.NaN));
+            DependencyProperty.RegisterAttached("WatermarkFontSize", typeof(double), typeof(UIInputs), new UIPropertyMetadata(double.NaN));
 
 
 
@@ -133,7 +133,7 @@ namespace WPFStyleGuide
         }
 
         public static readonly DependencyProperty IsErrorStateProperty =
-            DependencyProperty.RegisterAttached("IsErrorState", typeof(bool), typeof(FluxInput), new UIPropertyMetadata(false));
+            DependencyProperty.RegisterAttached("IsErrorState", typeof(bool), typeof(UIInputs), new UIPropertyMetadata(false));
 
 
 
@@ -149,7 +149,7 @@ namespace WPFStyleGuide
         }
 
         private static readonly DependencyProperty IsEmptyAndUnfocusedProperty =
-            DependencyProperty.RegisterAttached("IsEmptyAndUnfocused", typeof(bool), typeof(FluxInput), new FrameworkPropertyMetadata(true));
+            DependencyProperty.RegisterAttached("IsEmptyAndUnfocused", typeof(bool), typeof(UIInputs), new FrameworkPropertyMetadata(true));
 
 
         public bool HasText
@@ -159,7 +159,7 @@ namespace WPFStyleGuide
         }
 
         private static readonly DependencyProperty HasTextProperty =
-            DependencyProperty.RegisterAttached("HasText", typeof(bool), typeof(FluxInput), new FrameworkPropertyMetadata(false));
+            DependencyProperty.RegisterAttached("HasText", typeof(bool), typeof(UIInputs), new FrameworkPropertyMetadata(false));
 
 
         #endregion
@@ -309,7 +309,7 @@ namespace WPFStyleGuide
         #endregion
     }
 
-    public partial class FluxInputHandlers : ResourceDictionary
+    public partial class UIInputsHandlers : ResourceDictionary
     {
       
   

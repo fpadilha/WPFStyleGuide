@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fluxonaut.UI.Components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,10 +45,12 @@ namespace WPFStyleGuide
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (FluxInput.GetIsErrorState(tx))
-                FluxInput.SetIsErrorState(tx, false);
+            Button aa;
+
+            if (UIInputs.GetIsErrorState(tx))
+                UIInputs.SetIsErrorState(tx, false);
             else
-                FluxInput.SetIsErrorState(tx, true);
+                UIInputs.SetIsErrorState(tx, true);
 
         }
 

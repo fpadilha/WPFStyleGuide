@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFStyleGuide"
+        xmlns:ui="clr-namespace:Fluxonaut.UI.Components"
         mc:Ignorable="d"
         Background="#34324A"
         ResizeMode="NoResize"
@@ -77,14 +78,14 @@
                      x:Name="tx"
                      Width="400"
                      Style="{StaticResource TextBoxWatermark}"
-                     local:FluxInput.WatermarkText="Search for a keyword, hashtag, channel etc." />
-            
-            <TextBox  Margin="20"
+                     ui:UIInputs.WatermarkText="Search for a keyword, hashtag, channel etc." />
+
+            <TextBox Margin="20"
                      Width="200"
                      Style="{StaticResource TextBoxWatermark}"
-                     local:FluxInput.IsMonitoring="true"
-                     local:FluxInput.WatermarkText="dadsada" />
-       
+                     ui:UIInputs.IsMonitoring="true"
+                     ui:UIInputs.WatermarkText="dadsada" />
+
         </WrapPanel>
 
 
